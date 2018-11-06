@@ -8,31 +8,7 @@ app.use(parser.json());
 app.use(corb());
 
 
-app.get('/newsPreview', function (req, res) {
-    var newsPreviewList = [];
 
-    var info1 = {
-        type : 'newsPreview',
-        title : 'Earthquake: 4.4 quake strikes Inland',
-        content : 'This information comes from the USGS Earthquake Notification Service and this post was created '
-    };
-    var info2 = {
-        type : 'newsPreview',
-        title : '2.6 earthquake shakes near Concord',
-        content : 'CONCORD (KRON) - A 2.6 magnitude earthquake has struck near Concord on Tuesday afternoon, according'
-    };
-    var info3 = {
-        type : 'newsPreview',
-        title : 'Death Toll From Indonesia Earthquake Passes 43',
-        content : 'An earthquake expected in Istanbul may claim the lives of 26,000 to 30,000 people...'
-    };
-
-    newsPreviewList.push(info1);
-    newsPreviewList.push(info2);
-    newsPreviewList.push(info3);
-
-    res.send(newsPreviewList);
-});
 
 app.get('/testInform', function (req, res) {
     var info = {
@@ -40,7 +16,7 @@ app.get('/testInform', function (req, res) {
         year: '4',
         birth: '931232',
         depart: '노량진1동803통민방위대',
-        address: '서울특별시 송파구 올림픽로47길 12 쌍용아파트 103동 705호 \n (서울특별시 송파구 풍납2동 쌍용아파트 103동 705호)',
+        address: '서울특별시 송파구 올림픽길 18길 극동아파트 103동 803호 \n (서울특별시 송파구 성내2동 극동아파트 103동 704호)',
         master:'엄태성',
         div:'소집교육',
         date:'2018년9월9일',
@@ -65,11 +41,19 @@ app.get('/confirm', function (req, res) {
     res.send(info);
 });
 
-
+// - 메인화면 : 맨 마지막 지역 순서만 광주/제주/경북/경남/부산 순으로 수정
 
 app.get('/city', function (req, res) {
-    var info = ['서울', '부산', '대구', '인천', '광주', '대전', '울산', '세종',
-        '경기', '강원', '충북', '충남', '전북', '전남', '경북', '경남', '제주'];
+    var info = ['서울', '인천', '경기', '강원', '충북', '충남', '대전', '세종',
+        '전북', '전남', '대구', '울산', '광주', '제주', '경북', '경남', '부산'];
+
+    res.send(info);
+});
+
+app.get('/cityTest', function (req, res) {
+    var info = ['서울', '인천', '경기', '강원', '충북', '충남', '대전', '세종',
+        '전북', '전남', '대구', '울산', '광주', '제주', '경북', '경남', '부산',
+        '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
     res.send(info);
 });
@@ -77,9 +61,7 @@ app.get('/city', function (req, res) {
 
 app.get('/gu', function (req, res) {
     var info = ['강남구', '강동구', '강북구', '강서구', '관악구', '광진구',
-        '구로구', '금천구', '노원구', '도봉구', '동대문구', '동작구', '마포구',
-        '서대문구', '서초구', '성동구', '송파구', '성북구', '양천구',
-        '영등포구', '용산구', '은평구', '종로구', '중구', '중랑구'];
+        '구로구', '금천구',  '1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15'];
 
     res.send(info);
 });
