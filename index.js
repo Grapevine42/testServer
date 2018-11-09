@@ -97,6 +97,13 @@ app.get('/confirm', function (req, res) {
 });
 
 
+app.post('/login', function (req, res) {
+    console.log(req.body);
+
+    res.send('1');
+});
+
+
 
 
 http.listen(8899, function () {
